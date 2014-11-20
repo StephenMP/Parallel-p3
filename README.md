@@ -16,7 +16,9 @@ To Run:
 ======
 Files
 ======
-
+./src/
+./src/InvertedIndex.java
+./README
 
 =====
 Data
@@ -44,4 +46,17 @@ iterated item. Once all of the items had been put into the list we would then us
 to append our data onto the output string.
 Feeling that our logic was sound we went on to the testing phase following the instructions on how to use hadoop.
 When we tried to run the jar file through hadoop it would send out a concurrency exception. This is due to the fact that
-hadoop uses multithreads to do the tasks assigned to it. Since lists are not threadsafe because they need to 
+hadoop uses multithreads to do the tasks assigned to it. Since lists are not threadsafe while the program was trying to iterate
+through the list to add and edit items with the linked list.
+After that failed we went back to looking at using a HashMap again. We set it up in essentially the same manner as our linked 
+list. The major difference was this time we used a linked hashmap. When we set up the class for the map wthe trick was setting 
+up the comparator so that it would sort the list by value rather than by the key. Once we had that set up we moved onto the testing phase.
+At first there were a couple of false alarms when the code kept outputting things in the wrong format. This was only due to the fact
+that the required output directory was not being erased when we needed to rerun the tests. Once we figured out that problem we began,
+running through all of the various tests. We were able to print out different results and the first time through it did print out
+the file names and the number of occurences. Once we new that was working we then added in our sort method and it was able to run
+through that in an apropriate manner as well using the text files that were provided as examples eg. Alice-in-Wonderland.txt, 
+Bill-of-Rights.txt. These examples were so full of different words that we werent able to directly test the sorting when a 
+file had the same number of occurences whether or not they were sorted by the name. In order to test this we wrote a few of our 
+own sample test files. When we ran them through the inverted index maper and it was able to return the desired result.
+This gave us the desired output and left us able to test it for its speedup using the different ways hadoop would let us.
