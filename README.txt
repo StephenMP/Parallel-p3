@@ -4,6 +4,13 @@ Updated:    11/19/2014
 Assignment: p3 - Better Inverted Index Using Mapreduce
 Class:      Parallel Computing
 
+==========
+Onyx Woes
+==========
+This is the reminder that I was blocked out of Onyx and couldn't run the program or submit on Onyx.
+
+Marty said it was most likely due to too many failed attempts at logging in which is curious as I never failed a login prior to the issue occuring. Not sure of the underlying cause or if someone was trying to brute their way into my account.
+
 =============
 General Info
 =============
@@ -32,7 +39,15 @@ README.txt
 =====
 Data
 =====
-/* Data will be available once we can run in parallel on Onyx */
+Nodes   Time(s)     Speedup
+----------------------------
+2       579.852     N/A
+4       518.123     111.91
+8       488.352     118.74
+16      439.712     131.87
+----------------------------
+
+*NOTE* For some reason the times slowed down, much like others have stated on piazza. When I ran these initially, we had faster run-times by a few minutes, so I'm not sure what's up with that. Though, I think last time I had my script writing to /dev/null for the hadoop output, this time all the output was printing to the console, so that may be the cause.
 
 ===========
 Discussion
@@ -58,3 +73,5 @@ Upon some research, we found that when you use a HashMap collection, when you ob
 modifying the map would also modify the whatever collection you pulled from the map (e.g. map.getKeySet() returns a Set of your keys which
 is backed by the map itself). Thus, we could build up our HashMap and send out a copy post-sorting which allowed us to then avoid data loss
 when sorting the HashMap by value then by key and avoid ConcurrenceExceptions by iterating over a copy of the map.
+
+Also, Amit I appreciate you being understanding of the Onyx issues I have been having lately. It helps take some of the stress off that occurs when things out of your control inhibit your ability to submit work on time.
